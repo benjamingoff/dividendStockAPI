@@ -1,0 +1,5 @@
+JUMP L,PL(:01),fact,i
+GOTO PL(:02)
+PL(:01):
+MOV j,i
+MOV k,j

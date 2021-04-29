@@ -23,7 +23,7 @@ if len(sys.argv) > 1:
 #These are just for development purposes- So that I can run it from vscode quick with some default params.
 else:
     fileOutput = 'testFile.txt'
-    with open("/home/ben/files/stockAPIKey.txt","r") as f:
+    with open("stockAPIKey.txt","r") as f:
         API_KEY = f.read()
 
 def dividendSceener(minDividend=.10,minAPR=.08,maxAPR=.15,maxPrice=50):
@@ -53,10 +53,17 @@ def dividendSceener(minDividend=.10,minAPR=.08,maxAPR=.15,maxPrice=50):
 
 def main():
     tempList = dividendSceener()
-    print(tempList)
+    printArgs(tempList)
     f = open(fileOutput,'a')
     for i in tempList:
         f.write(str(i)+ '\n')
+
+#TODO 
+#041921 Using the dividend calendar feature, grab all of the stocks that are paying dividends in the next 3 months or so and then parse them to see if 
+#They are already in a hash from the above stock screener, so that I can get a complete picture of the dividend, price, payment date, returnPercentage, and stock
+#from only 2 api pulls and then can work on sorting it inside of the code here or something like that.
+
+
 
 if __name__ == "__main__":
     main()
